@@ -1,0 +1,45 @@
+{
+    "name": "helhum/composer-mono-example",
+    "description": "Composer Mono Example Distribution",
+    "homepage": "https://github.com/helhum/composer-mono-example",
+    "license": [
+        "GPL-2.0-or-later"
+    ],
+    "authors": [
+        {
+            "name": "Helmut Hummel",
+            "email": "typo3@helhum.io",
+            "role": "Developer"
+        }
+    ],
+    "config": {
+        "allow-plugins": {
+            "helhum/composer-mono": true,
+            "typo3/class-alias-loader": false,
+            "typo3/cms-composer-installers": false
+        },
+        "sort-packages": true
+    },
+    "require": {
+        "php": ">=8.1",
+        "helhum/composer-mono": "@dev",
+        "typo3/minimal": "^12"
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-main": "1.0.x-dev"
+        },
+        "helhum/composer-mono": {
+            "repo-dir": ".mono",
+            "apps-dir": "apps/*",
+            "versions": {
+                "helhum/composer-mono": "1.0.0"
+            }
+        }
+    },
+    "scripts": {
+        "post-autoload-dump": [
+            "@composer up -d apps/typo3-website --no-dev --verbose --prefer-dist --no-progress --classmap-authoritative"
+        ]
+    }
+}

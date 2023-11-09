@@ -1,0 +1,5 @@
+/.mono
+/vendor
+/apps/*/vendor
+/apps/*/composer.lock
+/apps/typo3-website/public
